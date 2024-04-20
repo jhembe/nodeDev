@@ -2,20 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Customer = require('./models/customer');
 
-
 const app = express();
 mongoose.set('strictQuery',false);
-
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-
-if(process.env.NODE_ENV !== 'production'){
-    require('dotenv').config();
-}
-
-const PORT = process.env.PORT || 3000;
-// const PORT = 3000;
+const PORT = 3001;
 
 
 const data = {
@@ -54,25 +46,15 @@ const customers = [
     }
 ]
 
-
-const customer = new Customer({
-    name:"Joseph",
-    industry:"IT"
-});
-
-// customer.save();
-
-
 // create an endpoint
 app.get('/',(req,res)=>{
-    res.send(customer);
+    res.send("Welcome :)");
 });
 
 app.get('/api/customers',async(req,res)=>{
-
     const result = await Customer.find();
-    res.send({"customers":result});
-    /*res.send({"customers":customers})*/
+    res.send({"Customers":result});
+    // res.send({"customers":customers})
 })
 
 app.get('/api/fav',(req,res)=>{
@@ -90,21 +72,6 @@ app.post('/api/customers',(req,res)=>{
     res.send(req.body);
 })
 
-// app.listen(PORT,()=>{
-//     console.log(`Server is running at http://localhost:${PORT}`);
-// })
-
-const start = async() => {
-    try{
-        await mongoose.connect(process.env.CONNECTION);
-
-        app.listen(PORT,()=>{
-            console.log(`Server is running at http://localhost:${PORT}`);
-        })
-    }catch(e){
-        console.log(e.message);
-    }
-    
-}
-
-start();
+app.listen(PORT,()=>{
+    console.log(`Server is running at http://localhost:${PORT}`);
+})

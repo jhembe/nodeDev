@@ -4,7 +4,7 @@
   "description": "A sample node app for customers",
   "main": "src/app.js",
   "scripts": {
-    "start": "node ./src/app.js"
+    "start": "npx nodemon"
   },
   "keywords": [
     "nodejs"
@@ -12,6 +12,9 @@
   "author": "Joseph Gabriel",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.2",
     "uuid": "^9.0.1"
   }
 }
