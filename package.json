@@ -1,0 +1,17 @@
+{
+  "name": "customers",
+  "version": "1.0.0",
+  "description": "A sample node app for customers",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node ./src/app.js"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Joseph Gabriel",
+  "license": "MIT",
+  "dependencies": {
+    "uuid": "^9.0.1"
+  }
+}
